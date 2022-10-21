@@ -1,0 +1,26 @@
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="carritoVenta" aria-labelledby="carritoVentaLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title"><b>Carrito de venta</b></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body text-center">
+    <button class="btn btn-primary bg-gradient border-dark rounded-circle p-4 mb-3" type="button">📸QR</button>
+    <!-- Lista de productos -->
+    <ul class="list-group mb-2">
+      <!-- <app-cola-producto (eliminarColaProducto)="eliminarColaProducto($event)" *ngFor="let producto of carrito" [producto]="producto"></app-cola-producto> -->
+      <li *ngFor="let producto of carrito.lista" class="list-group-item ">
+        <span class="" style="width: 9rem;padding-right: 1%;">{{producto.nombre}}</span>
+        <button type="button" (click)="restar(producto)"class="btn btn-dark bg-gradient border-dark rounded-circle p-1">➖</button>
+        <input type="text" (change)="cambiarCantidad(producto)" [(ngModel)]="producto.cant" style="width: 2rem;">
+        <button type="button" (click)="sumar(producto)" class="btn btn-dark bg-gradient border-dark rounded-circle p-1">➕</button>
+        <button type="button" (click)="eliminar(producto)" class="btn btn-dark bg-gradient border-dark rounded-circle p-1 ms-1">❌</button>
+      </li>
+    </ul>
+    <!-- Monto total de productos -->
+    <h5><b>Monto total: </b>{{carrito.montoTotal}}$</h5>
+    <!-- Boton realizar venta -->
+    <button (click)="cancelar()" type="button" class="btn btn-secondary bg-gradient border-dark mt-1 me-1" data-bs-dismiss="offcanvas" aria-label="Close">Cancelar</button>
+    <button (click)="subirCompra()" [disabled]="carrito.montoTotal == 0" type="button" class="btn btn-success bg-gradient border-dark mt-1" data-bs-dismiss="offcanvas" aria-label="Close">Realizar venta💸</button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container d-flex mt-4 ms-5">
+    <div class="row col-12">
+        <div class="card mb-2 col-10 col-md-5 me-2 border border-primary border-5">
+            <div class="card-body m-1">
+                <button (click)="eliminar()"class="btn btn-dark bg-gradient border-secondary float-end p-2" type="button" data-bs-toggle="modal" data-bs-target="#advertencia">❌</button>
+                <button class="btn btn-dark bg-gradient border-secondary float-end me-3 p-2" type="button">📝</button>
+                <h2 class="card-title">{{proveedor.nombre}}</h2>
+                <p class="card-text">Email: {{proveedor.email}}</p>
+                <p class="card-text">Telefono: {{proveedor.numero}}</p>
+                <p> 
+                    <button (click)="insumoBtn()" class="btn border border-primary" type="button">Insumos</button>
+                </p>
+            </div>
+        </div>
+        <div *ngIf="insumoFlag" class="col-10 col-md-5 card mb-2 border border-primary border-5">
+            <div class="card-body m-1">
+                <h2 class="card-title">Insumos: <button type="button" class="btn btn-dark bg-gradient float-end p-2">➕</button></h2>
+                <!-- Insumos -->
+                <ul class="list-group mt-3">
+                    <app-lista-insumo></app-lista-insumo>
+                    <app-lista-insumo></app-lista-insumo>
+                    <app-lista-insumo></app-lista-insumo>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<app-advertencia></app-advertencia>

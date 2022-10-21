@@ -1,0 +1,12 @@
+<!-- Botonera de proveedor -->
+<div class="mt-2 ms-5">
+    <button class="btn btn-dark bg-gradient border-dark me-1 ms-3" type="button" data-bs-toggle="modal" data-bs-target="#crearProveedor">Proveedor➕</button>
+</div>
+
+
+<!-- Proveedores -->
+<div class="ms-3">
+    <app-tarjeta-proveedor (eliminarProveedor)="eliminarProveedor($event)" *ngFor="let proveedor of proveedores" [proveedor]="proveedor"></app-tarjeta-proveedor>
+</div>
+
+<app-crear-proveedor (crearProveedor)="crearProveedor($event)"></app-crear-proveedor>
